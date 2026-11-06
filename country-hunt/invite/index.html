@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duel me in Country Hunt</title>
+  <meta property="og:title" content="Duel me in Country Hunt">
+  <meta property="og:description" content="See the flag, find the country on the map. Join me for a live duel.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://erenctns.github.io/country-hunt/icon.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <header>
+    <img src="../icon.png" alt="">
+    <span class="name">Country Hunt</span>
+  </header>
+  <h1 id="title">Duel me in Country Hunt</h1>
+  <p id="body">Install the game, then add me with this friend code:</p>
+  <p id="code-row" hidden><strong id="code"></strong></p>
+  <p>
+    <a class="button" id="ios" href="https://apps.apple.com/app/id6831662677">App Store</a>
+    <a class="button" id="android" href="https://play.google.com/store/apps/details?id=com.erenctns.countryhunt">Google Play</a>
+  </p>
+</main>
+<script>
+  // Uygulama yüklüyse link buraya hiç gelmez, doğrudan uygulamayı açar. Burası uygulaması olmayanlar için.
+  var ua = navigator.userAgent;
+  var ipad = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+  var ios = /iPhone|iPad|iPod/.test(ua) || ipad;
+  var android = /Android/.test(ua);
+  var code = new URLSearchParams(location.search).get('friend');
+  if (/^[A-Za-z0-9-]{4,12}$/.test(code || '')) {
+    document.getElementById('code').textContent = code;
+    document.getElementById('code-row').hidden = false;
+  } else {
+    document.getElementById('body').hidden = true;
+  }
+  if ((navigator.language || '').toLowerCase().indexOf('tr') === 0) {
+    document.documentElement.lang = 'tr';
+    document.getElementById('title').textContent = "Country Hunt'ta benimle düello yap";
+    document.getElementById('body').textContent = 'Oyunu yükle, sonra bu arkadaş koduyla beni ekle:';
+  }
+  if (ios) document.getElementById('android').hidden = true;
+  if (android) document.getElementById('ios').hidden = true;
+  // Kod sayfada görünsün diye kısa bir bekleme; mesajda da yazıyor.
+  if (ios || android) {
+    setTimeout(function () {
+      location.href = document.getElementById(ios ? 'ios' : 'android').href;
+    }, 2500);
+  }
+</script>
+</body>
+</html>

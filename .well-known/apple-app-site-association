@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["G3R9JJ8F23.com.erenctns.countryhunt"],
+        "components": [{ "/": "/country-hunt/invite*", "comment": "Arkadaş daveti" }]
+      }
+    ]
+  }
+}

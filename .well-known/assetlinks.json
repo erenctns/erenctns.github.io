@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.erenctns.countryhunt",
+      "sha256_cert_fingerprints": [
+        "79:F3:33:E8:1A:8A:87:AE:23:61:BA:5E:F2:76:8D:F9:CC:95:6A:34:3D:5D:D1:B1:C7:67:68:9E:AC:54:83:78"
+      ]
+    }
+  }
+]
